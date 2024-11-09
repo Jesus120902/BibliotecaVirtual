@@ -1,0 +1,68 @@
+﻿@model Libro
+
+@{
+    ViewData["Title"] = "Editar Libro";
+}
+
+<h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Editar" method="post" class="p-4 shadow rounded bg-white">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group mb-3">
+                    <label for="Titulo">Título</label>
+                    <input asp-for="Titulo" class="form-control" placeholder="Ingrese el título del libro" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Autor">Autor</label>
+                    <input asp-for="Autor" class="form-control" placeholder="Ingrese el autor del libro" />
+                    <span asp-validation-for="Autor" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Tema">Tema</label>
+                    <input asp-for="Tema" class="form-control" placeholder="Ingrese el tema del libro" />
+                    <span asp-validation-for="Tema" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Editorial">Editorial</label>
+                    <input asp-for="Editorial" class="form-control" placeholder="Ingrese la editorial del libro" />
+                    <span asp-validation-for="Editorial" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="AnioPublicacion">Año de Publicación</label>
+                    <input asp-for="AnioPublicacion" class="form-control" placeholder="Ingrese el año de publicación" />
+                    <span asp-validation-for="AnioPublicacion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Paginas">Páginas</label>
+                    <input asp-for="Paginas" class="form-control" placeholder="Ingrese el número de páginas" />
+                    <span asp-validation-for="Paginas" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Categoria">Categoría</label>
+                    <input asp-for="Categoria" class="form-control" placeholder="Ingrese la categoría del libro" />
+                    <span asp-validation-for="Categoria" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,47 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form id="formRegistro" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="p-4 shadow rounded bg-white">
+                <h2 class="text-center mb-4">Crea una nueva cuenta</h2>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                <!-- Campo de Email -->
+                <div class="form-group mb-3">
+                    <label asp-for="Input.Email" class="form-label">Correo Electrónico</label>
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" placeholder="correo@ejemplo.com" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+
+                <!-- Campo de Contraseña -->
+                <div class="form-group mb-3">
+                    <label asp-for="Input.Password" class="form-label">Contraseña</label>
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password" placeholder="Contraseña" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+
+                <!-- Campo de Confirmar Contraseña -->
+                <div class="form-group mb-3">
+                    <label asp-for="Input.ConfirmPassword" class="form-label">Confirmar Contraseña</label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" placeholder="Confirmar Contraseña" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <!-- Botón de Registro -->
+                <button id="botonRegistro" type="submit" class="btn btn-primary w-100">Registrarse</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

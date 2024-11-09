@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Libro>
+
+@{
+    ViewData["Title"] = "Lista de Libros";
+}
+
+<h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+<div class="container">
+    <!-- Botón para agregar nuevo libro -->
+    <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-primary" asp-action="Crear">
+            <i class="fas fa-plus"></i> Agregar Nuevo Libro
+        </a>
+    </div>
+
+    <!-- Tabla de libros -->
+    <table class="table table-hover table-striped align-middle shadow-sm rounded">
+        <thead class="table-primary text-center">
+            <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Tema</th>
+                <th scope="col">Editorial</th>
+                <th scope="col">Año Publicación</th>
+                <th scope="col">Páginas</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var libro in Model)
+            {
+                <tr>
+                    <td>@libro.Titulo</td>
+                    <td>@libro.Autor</td>
+                    <td>@libro.Tema</td>
+                    <td>@libro.Editorial</td>
+                    <td>@libro.AnioPublicacion</td>
+                    <td>@libro.Paginas</td>
+                    <td>@libro.Categoria</td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-outline-secondary" asp-action="Editar" asp-route-id="@libro.Id">
+                            <i class="fas fa-edit"></i> Editar
+                        </a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Eliminar" asp-route-id="@libro.Id">
+                            <i class="fas fa-trash-alt"></i> Eliminar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
